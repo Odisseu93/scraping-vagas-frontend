@@ -4,6 +4,8 @@ import {
   type Content
 } from "../libs/pdfmake.js"
 
+import getData from "../utils/getData.js"
+
 interface IOutputCreatePdf {
   message: string
   filePath?: string
@@ -25,13 +27,7 @@ export const pdfFile: PdfFile = {
 
       const pdfDocGenerator = pdfMake.createPdf(docDefinition)
 
-      const currentDate = new Date()
-      const day = currentDate.getDate().toString().padStart(2, "0")
-      const month = (currentDate.getMonth() + 1).toString().padStart(2, "0")
-      const year = currentDate.getFullYear().toString()
-      const hours = currentDate.getHours().toString().padStart(2, "0")
-      const minutes = currentDate.getMinutes().toString().padStart(2, "0")
-      const seconds = currentDate.getSeconds().toString().padStart(2, "0")
+      const { day, month, year, hours, minutes, seconds } = getData();
 
       const formattedDate = `${day}-${month}-${year}-${hours}-${minutes}-${seconds}`
 
