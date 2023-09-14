@@ -4,7 +4,7 @@ import {
   type Content
 } from "../libs/pdfmake.js"
 
-import getData from "../utils/getData.js"
+import getData from "../utils/getDate.js"
 
 interface IOutputCreatePdf {
   message: string
